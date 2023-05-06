@@ -3,7 +3,7 @@ package api
 import (
 	"time"
 
-	"fyersgo/utils"
+	"github.com/dragonzurfer/fyersgo/utils"
 )
 
 // DataQuote is the response api model for quotes
