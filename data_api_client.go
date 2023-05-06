@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dragonzurfer/fyersgo/fyersgo/api"
-	"github.com/dragonzurfer/fyersgo/fyersgo/utils"
+	"github.com/dragonzurfer/fyersgo/api"
+	"github.com/dragonzurfer/fyersgo/utils"
 )
 
 func (c *client) GetQuote(symbols []string) ([]api.DataQuote, error) {
