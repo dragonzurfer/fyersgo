@@ -49,7 +49,6 @@ func (c *client) GetHistoricalData(symbol string, resolution api.Resolution, sta
 
 		return api.HistoricalData{}, err
 	} else {
-		fmt.Println(string(resp), "hello")
 		if utils.IsSuccessResponse(resp) {
 			var r DomainHistoricalData
 			if json.Unmarshal(resp, &r); err != nil {

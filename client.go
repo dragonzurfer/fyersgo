@@ -55,7 +55,6 @@ func (c *client) invoke(method, url string, body interface{}) ([]byte, error) {
 		"Authorization": fmt.Sprintf("%s", c.apiKey+":"+c.accessToken),
 		"Content-Type":  "application/json",
 	}
-	fmt.Printf("Headers: %v\n", headerMap)
 	var bodyByte []byte
 	if bodyByteArr, err := json.Marshal(body); err != nil {
 		return nil, err
@@ -66,9 +65,6 @@ func (c *client) invoke(method, url string, body interface{}) ([]byte, error) {
 		log.Error("Failed to make http call", err)
 		return nil, err
 	} else {
-		fmt.Println(string(resp))
-		fmt.Println(url)
-
 		return resp, nil
 	}
 }
