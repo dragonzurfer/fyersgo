@@ -2,7 +2,6 @@ package utils
 
 import (
 	"bytes"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/http/httputil"
@@ -43,11 +42,6 @@ func DoHttpCall(method, url string, body []byte, headers map[string]string) ([]b
 	respOut, _ := httputil.DumpResponse(resp, true)
 	log.Debugln(string(respOut))
 
-	// Print the request method, URL, headers, and body
-	fmt.Printf("Request method: %s\n", req.Method)
-	fmt.Printf("Request URL: %s\n", req.URL.String())
-	fmt.Printf("Request headers: %v\n", req.Header)
-	fmt.Printf("Request body: %s\n", string(body))
 	defer resp.Body.Close()
 	return ioutil.ReadAll(resp.Body)
 }
