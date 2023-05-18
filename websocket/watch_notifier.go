@@ -2,6 +2,7 @@ package fyerswatch
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -121,7 +122,7 @@ func (w *WatchNotifier) Unsubscribe(symbols ...string) {
 	}
 }
 
-func (w *WatchNotifier) Subscribe(nt api.NotificationType, symbols ...string) {
+func (w *WatchNotifier) Subscribe(ctx context.Context, nt api.NotificationType, symbols ...string) {
 	subsLatch.Lock()
 	if !w.conn.IsConnected {
 		interrupt := make(chan os.Signal, 1)
@@ -153,6 +154,9 @@ func (w *WatchNotifier) Subscribe(nt api.NotificationType, symbols ...string) {
 		for {
 			select {
 			case <-interrupt:
+				socket.Close()
+				return
+			case <-ctx.Done():
 				socket.Close()
 				return
 			}
