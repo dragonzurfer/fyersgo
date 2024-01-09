@@ -5,6 +5,7 @@ const (
 	DataHost             = "https://api-t1.fyers.in"
 	ApiV2                = "/api/v2"
 	DataV2               = "/data-rest/v2"
+	DataV3               = "/data"
 	Data                 = "/data"
 	OrdersUrl            = "/orders"
 	MultiOrderUrl        = "/orders-multi"

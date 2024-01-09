@@ -45,7 +45,7 @@ func (c *client) GetHistoricalData(symbol string, resolution api.Resolution, sta
 	} else {
 		queryParam = fmt.Sprintf("%s&range_to=2021-01-02", queryParam)
 	}
-	if resp, err := c.invoke(utils.POST, c.toUri(DataV2, HistoricalDataApiUrl, QueryParam, queryParam), nil); err != nil {
+	if resp, err := c.invoke(utils.POST, c.toUri(DataV3, HistoricalDataApiUrl, QueryParam, queryParam), nil); err != nil {
 
 		return api.HistoricalData{}, err
 	} else {

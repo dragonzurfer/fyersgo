@@ -1,6 +1,6 @@
 module github.com/dragonzurfer/fyersgo
 
-go 1.19
+go 1.18
 
 require (
 	github.com/dragonzurfer/fyersgo/api v0.0.0-20230506120707-342d6521bb57
